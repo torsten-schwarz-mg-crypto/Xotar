@@ -1,0 +1,83 @@
+XOTAR
+
+**Local cognitive shell for Ollama** — watch the model think between turns.
+
+Single-file research prototype: global workspace, sleep-time consolidation, prediction-error loop, initiative/murmur, and an honest capability scorecard.
+
+> Not a second-brain note app. Not a memory API for other agents.  
+> A self-contained cognitive loop you can open in the browser.
+
+---
+
+## What you get
+
+- **Global workspace** — limited attention slots + saliency
+- **Memory consolidation** — decay, replay, synthesis (similarity-based)
+- **Dream cycle** — bridges, open questions, dream journal while idle
+- **Murmur & initiative** — quiet inner notes and follow-ups when you leave the tab
+- **Prediction-error loop** — generate expectations, score them later
+- **Structured actions** — human-in-the-loop whitelist
+- **Butlin-style scorecard** — explicit `yes` / `part` / `no` (no hype claims)
+- **Graph UI** — Cytoscape view of concepts and links
+- **100% local** — Ollama + browser; data stays on your machine
+
+---
+
+## Quick start
+
+1. Install [Ollama](https://ollama.com) and pull a model, e.g.  
+   `ollama pull llama3.2`
+2. Enable CORS for the browser (example):  
+   `OLLAMA_ORIGINS="*"` when starting Ollama (see Ollama docs for your OS)
+3. Open `Xotar.html` (or the latest release file) in Chrome/Firefox
+4. Point the app at `http://localhost:11434` and chat
+
+No account. No cloud. No build step.
+
+---
+
+## What this is / isn’t
+
+| Is | Isn’t |
+|----|--------|
+| Research / portfolio prototype | Production multi-user SaaS |
+| Cognitive architecture experiment | Obsidian replacement or Khoj clone |
+| Visible thinking (graph + scorecard) | Black-box memory API (Mem0-style) |
+| Single HTML file on purpose | Claim of machine consciousness |
+
+The scorecard is intentionally conservative. Gaps are marked `part` or `no`.
+
+---
+
+## Architecture (short)
+Chat / idle
+
+→ retrieve + workspace
+
+→ persona prompt (+ temporal context)
+
+→ Ollama
+
+→ consolidate / dream / predict / maybe initiate
+
+→ graph + scorecard updateText
+Persistence: `localStorage` / IndexedDB in the browser. Export/import JSON supported in-app.
+
+---
+
+## Status
+
+**v11 — experimental**  
+Prediction · Actions · Timeline. Expect rough edges. Issues and PRs welcome once the repo is live.
+
+---
+
+## License
+
+MIT — use it, fork it, break it, cite it if you publish results.
+
+---
+
+## Disclaimer
+
+XOTAR demonstrates *ideas* from cognitive science (workspace, consolidation, prediction) as runnable UI. It does not claim biological equivalence or general intelligence. Treat outputs like any local LLM: useful, fallible, private to your machine.
